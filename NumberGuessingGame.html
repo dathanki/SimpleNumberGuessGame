@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Guessing Game</title>
+
+    <style>
+        html { 
+	font-family: sans-serif; 
+	} 
+	
+		body { 
+	width: 50%; 
+	max-width: 800px; 
+	min-width: 480px; 
+	margin: 0 auto; 
+	} 
+	</style>
+</head>
+
+<body>
+    <p></p>
+    <p></p>
+    <p></p>
+
+    <div class="container">
+        <h1 class="text-center">Guess a number</h1>
+    </div>
+
+    <p></p>
+
+    <p class="font-weight-normal text-center">
+        Need a hint?<br>It is a number between 1 - 1000
+    </p>
+
+    <p></p>
+
+
+    <div class="container">
+        <div class="form">
+            <h1 class="page-header">Choose your number:</h1>
+
+            <input placeholder="Enter your guess here" class="form-control" id="guessField" />
+
+            <p></p>
+
+            <div class="text-center"><button class="btn btn-primary" "guessSubmit" id="submitguess" type="button">Guess</button></div>
+
+        </div>
+        <p></p>
+
+
+
+        <div class="container">
+            <h4 class="text-center" id="guessLog">Your previous attempts:</h4>
+
+
+
+
+
+            <script type="text/javascript">
+                // random value generated 
+                var randomNumber = Math.floor(Math.random() * 1000 + 1);
+
+                var userGuessLog = [];
+
+                // counting the number of guesses 
+                var guess = 1;
+
+                document.getElementById("submitguess").onclick = function() {
+
+                    // number thats guessed by the user	 
+                    var userGuess = " " + document.getElementById("guessField").value;
+
+                    userGuessLog.push(userGuess);
+                    // console.log(userGuess)
+                    document.getElementById('guessLog').innerHTML = userGuessLog;
+
+                    if (userGuess == randomNumber) //Guess is correct
+                    {
+                        alert("Correct! You guessed it in " +
+                            guess + " attempts. ");
+                    } else if (userGuess > randomNumber) //Guess is greater than random number
+                    {
+                        guess++;
+                        alert("Guess Again. Hint: Go Lower");
+                    } else //Guess is lower than random number
+                    {
+                        guess++;
+                        alert("Guess Again. Hint: Go Higher")
+                    }
+                }
+
+            </script>
+
+
+
+</body>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+</html>
